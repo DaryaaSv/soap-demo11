@@ -4,7 +4,7 @@
 
     <!-- Define the layout for the PDF -->
     <fo:layout-master-set>
-        <fo:simple-page-master master-name="page" page-height="11in" page-width="8.5in"
+        <fo:simple-page-master master-name="page" page-height="11in" page-width="10.5in"
                                margin-top="0.5in" margin-bottom="0.5in"
                                margin-left="0.5in" margin-right="0.5in">
             <fo:region-body/>
@@ -83,7 +83,8 @@
             <xsl:for-each select="reviews">
                 <fo:block font-size="12pt" margin-bottom="10pt">
                     <xsl:value-of select="reviewText"/><xsl:text>&#10;</xsl:text>
-                    Rating: <xsl:value-of select="rating"/>
+                    Rating: <xsl:value-of select="rating"/><xsl:text>&#10;</xsl:text>
+                    <xsl:text>Game: </xsl:text><xsl:value-of select="//games[id=current()/game]/title"/>
                 </fo:block>
             </xsl:for-each>
         </fo:block>
