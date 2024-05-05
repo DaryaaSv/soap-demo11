@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Account>
+    <id>1</id>
+    <userName>johndoe89</userName>
+    <password>securepassword</password>
+    <games>
+        <id>101</id>
+        <title>The Witcher 3: Wild Hunt</title>
+        <description>An action role-playing game developed by CD Projekt Red.</description>
+        <genre>Action RPG</genre>
+    </games>
+    <games>
+        <id>102</id>
+        <title>Grand Theft Auto V</title>
+        <description>An action-adventure game developed by Rockstar North.</description>
+        <genre>Action-Adventure</genre>
+    </games>
+    <games>
+        <id>103</id>
+        <title>The Legend of Zelda: Breath of the Wild</title>
+        <description>An action-adventure game developed by Nintendo for the Nintendo Switch.</description>
+        <genre>Action-Adventure</genre>
+    </games>
+    <games>
+        <id>104</id>
+        <title>Red Dead Redemption 2</title>
+        <description>An action-adventure game developed and published by Rockstar Games.</description>
+        <genre>Action-Adventure</genre>
+    </games>
+    <games>
+        <id>105</id>
+        <title>Fallout 4</title>
+        <description>An action role-playing game developed by Bethesda Game Studios.</description>
+        <genre>Action RPG</genre>
+    </games>
+    <games>
+        <id>106</id>
+        <title>The Last of Us Part II</title>
+        <description>An action-adventure game developed by Naughty Dog.</description>
+        <genre>Action-Adventure</genre>
+    </games>
+    <reviews>
+        <id>201</id>
+        <game>101</game>
+        <reviewText>I love the immersive open world and rich storytelling.</reviewText>
+        <rating>4.8</rating>
+    </reviews>
+    <reviews>
+        <id>202</id>
+        <game>103</game>
+        <reviewText>Beautiful open world, innovative gameplay mechanics.</reviewText>
+        <rating>4.7</rating>
+    </reviews>
+    <reviews>
+        <id>203</id>
+        <game>106</game>
+        <reviewText>Amazing story and character development.</reviewText>
+        <rating>4.9</rating>
+    </reviews>
+    <wishlist>
+        <id>301</id>
+        <wishlistName>My Wishlist</wishlistName>
+        <games>102</games>
+        <games>103</games>
+        <games>104</games>
+        <games>105</games>
+        <games>106</games>
+    </wishlist>
+    <favoriteGames>
+        <id>401</id>
+        <game>101</game>
+    </favoriteGames>
+    <favoriteGames>
+        <id>402</id>
+        <game>102</game>
+    </favoriteGames>
+    <favoriteGames>
+        <id>403</id>
+        <game>104</game>
+    </favoriteGames>
+    <favoriteGames>
+        <id>404</id>
+        <game>105</game>
+    </favoriteGames>
+    <favoriteGames>
+        <id>405</id>
+        <game>106</game>
+    </favoriteGames>
+</Account>

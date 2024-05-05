@@ -1,0 +1,48 @@
+<xs:schema attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://eif.viko.lt/vvasylieva/springsoap/gen"
+           targetNamespace="http://eif.viko.lt/vvasylieva/springsoap/gen"
+           elementFormDefault="qualified">
+
+    <xs:element name="getStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="student" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="student">
+        <xs:sequence>
+            <xs:element type="xs:byte" name="id"/>
+            <xs:element type="xs:string" name="firstName"/>
+            <xs:element type="xs:string" name="lastName"/>
+            <xs:element type="xs:short" name="student-code"/>
+            <xs:element name="account">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element type="xs:byte" name="id"/>
+                        <xs:element type="xs:string" name="password"/>
+                        <xs:element type="xs:string" name="userName"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="subjects" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element type="xs:byte" name="credits"/>
+                        <xs:element type="xs:byte" name="id"/>
+                        <xs:element type="xs:string" name="name"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
