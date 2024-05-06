@@ -45,14 +45,14 @@
             </head>
             <body>
 
-                <xsl:apply-templates select="accounts/account"/>
+                <xsl:apply-templates select="Account"/>
 
             </body>
         </html>
 
     </xsl:template>
 
-    <xsl:template match="account">
+    <xsl:template match="Account">
         <div class="account">
             <h2>Account Information</h2>
             <table>
@@ -124,6 +124,12 @@
             <td><xsl:value-of select="game/title"/></td>
             <td><xsl:value-of select="reviewText"/></td>
             <td><xsl:value-of select="rating"/></td>
+        </tr>
+    </xsl:template>
+
+    <xsl:template match="wishlist">
+        <tr>
+            <td><xsl:value-of select="wishlistName"/></td>
         </tr>
     </xsl:template>
 

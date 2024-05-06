@@ -30,7 +30,6 @@ public class PdfController {
             headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
             return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
         } catch (Exception e) {
-            // Log the error for debugging purposes
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
