@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- Define Game element -->
+    <xs:element name="getAccountRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAccountResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="account" type="Account" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="Game">
         <xs:complexType>
             <xs:sequence>
@@ -13,7 +28,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Define Review element -->
     <xs:element name="Review">
         <xs:complexType>
             <xs:sequence>
@@ -25,7 +39,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Define Wishlist element -->
     <xs:element name="Wishlist">
         <xs:complexType>
             <xs:sequence>
@@ -36,7 +49,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Define FavoriteGame element -->
     <xs:element name="FavoriteGame">
         <xs:complexType>
             <xs:sequence>
@@ -46,7 +58,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Define Account element -->
     <xs:element name="Account">
         <xs:complexType>
             <xs:sequence>
