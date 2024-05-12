@@ -1,6 +1,7 @@
-package lt.viko.eif.vvasylieva.soap.soapdemo.model;
+package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
 import jakarta.persistence.*;
+import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.FavoriteGameDTO;
 
 /**
  * Represents a favorite game entity.
@@ -47,6 +48,12 @@ public class FavoriteGame {
     public FavoriteGame(Game game) {
         this.game = game;
     }
+
+    public FavoriteGame(FavoriteGameDTO favoriteGame) {
+        this.Id = favoriteGame.getId();
+        this.game = favoriteGame.getGame();
+    }
+
 
     /**
      * Retrieves the unique identifier of the favorite game.

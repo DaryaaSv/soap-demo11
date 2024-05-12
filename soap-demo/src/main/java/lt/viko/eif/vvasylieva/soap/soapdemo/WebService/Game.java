@@ -1,6 +1,7 @@
-package lt.viko.eif.vvasylieva.soap.soapdemo.model;
+package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
 import jakarta.persistence.*;
+import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.GameDTO;
 
 /**
  * Represents a game entity.
@@ -54,6 +55,13 @@ public class Game {
         this.title = title;
         this.description = description;
         this.genre = genre;
+    }
+
+    public Game(GameDTO game) {
+        this.Id = game.getId();
+        this.title = game.getTitle();
+        this.description = game.getDescription();
+        this.genre = game.getGenre();
     }
 
     /**

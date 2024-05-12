@@ -1,6 +1,9 @@
-package lt.viko.eif.vvasylieva.soap.soapdemo.model;
+package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
 import jakarta.persistence.*;
+import lt.viko.eif.vvasylieva.soap.soapdemo.WebService.Game;
+import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.ReviewDTO;
+
 /**
  * Represents a review entity.
  * This class maps to the 'review' table in the database.
@@ -59,6 +62,13 @@ public class Review {
         this.game = game;
         this.reviewText = reviewText;
         this.rating = rating;
+    }
+
+    public Review(ReviewDTO review) {
+        this.Id = review.getId();
+        this.game = review.getGame();
+        this.reviewText = review.getReviewText();
+        this.rating = review.getRating();
     }
 
     /**

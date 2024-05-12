@@ -1,6 +1,5 @@
-package lt.viko.eif.vvasylieva.soap.soapdemo.db;
+package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
-import lt.viko.eif.vvasylieva.soap.soapdemo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +12,7 @@ import java.util.List;
 @Component
 public class DataLoader {
 
+    @Autowired
     private AccountJpaRepository accountJpaRepository;
 
     /**

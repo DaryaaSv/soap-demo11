@@ -1,6 +1,7 @@
-package lt.viko.eif.vvasylieva.soap.soapdemo.model;
+package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
 import jakarta.persistence.*;
+import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.AccountDTO;
 
 import java.util.List;
 
@@ -101,6 +102,16 @@ public class Account {
         this.reviews = reviews;
         this.wishlist = wishlist;
         this.favoriteGames = favoriteGames;
+    }
+
+    public Account(AccountDTO account) {
+        Id = account.getId();
+        this.userName = account.getUserName();
+        this.password = account.getPassword();
+        this.games = account.getGames();
+        this.reviews = account.getReviews();
+        this.wishlist = account.getWishlist();
+        this.favoriteGames = account.getFavoriteGames();
     }
 
     /**
