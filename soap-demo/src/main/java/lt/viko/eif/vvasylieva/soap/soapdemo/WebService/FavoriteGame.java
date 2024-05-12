@@ -51,7 +51,7 @@ public class FavoriteGame {
 
     public FavoriteGame(FavoriteGameDTO favoriteGame) {
         this.Id = favoriteGame.getId();
-        this.game = favoriteGame.getGame();
+        this.game = new Game(favoriteGame.getGame());
     }
 
 

@@ -7,6 +7,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import lt.viko.eif.vvasylieva.soap.soapdemo.WebService.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "account", propOrder = {
@@ -29,16 +30,16 @@ public class AccountDTO {
     private String password;
 
     @XmlElement(required = true)
-    private List<Game> games;
+    private List<GameDTO> games;
 
     @XmlElement(required = true)
-    private List<Review> reviews;
+    private List<ReviewDTO> reviews;
 
     @XmlElement(required = true)
-    private Wishlist wishlist;
+    private WishlistDTO wishlist;
 
     @XmlElement(required = true)
-    private List<FavoriteGame> favoriteGames;
+    private List<FavoriteGameDTO> favoriteGames;
 
     public AccountDTO() {
     }
@@ -47,13 +48,19 @@ public class AccountDTO {
         this.Id = account.getId();
         this.userName = account.getUserName();
         this.password = account.getPassword();
-        this.games = account.getGames();
-        this.reviews = account.getReviews();
-        this.wishlist = account.getWishlist();
-        this.favoriteGames = account.getFavoriteGames();
+        this.games = account.getGames().stream()
+                .map(GameDTO::new)
+                .collect(Collectors.toList());
+        this.reviews = account.getReviews().stream()
+                .map(ReviewDTO::new)
+                .collect(Collectors.toList());
+        this.wishlist = new WishlistDTO(account.getWishlist());
+        this.favoriteGames = account.getFavoriteGames().stream()
+                .map(FavoriteGameDTO ::new)
+                .collect(Collectors.toList());
     }
 
-    public AccountDTO(int id, String userName, String password, List<Game> games, List<Review> reviews, Wishlist wishlist, List<FavoriteGame> favoriteGames) {
+    public AccountDTO(int id, String userName, String password, List<GameDTO> games, List<ReviewDTO> reviews, WishlistDTO wishlist, List<FavoriteGameDTO> favoriteGames) {
         Id = id;
         this.userName = userName;
         this.password = password;
@@ -91,35 +98,35 @@ public class AccountDTO {
         this.password = password;
     }
 
-    public List<Game> getGames() {
+    public List<GameDTO> getGames() {
         return games;
     }
 
-    public void setGames(List<Game> games) {
+    public void setGames(List<GameDTO> games) {
         this.games = games;
     }
 
-    public List<Review> getReviews() {
+    public List<ReviewDTO> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<Review> reviews) {
+    public void setReviews(List<ReviewDTO> reviews) {
         this.reviews = reviews;
     }
 
-    public Wishlist getWishlist() {
+    public WishlistDTO getWishlist() {
         return wishlist;
     }
 
-    public void setWishlist(Wishlist wishlist) {
+    public void setWishlist(WishlistDTO wishlist) {
         this.wishlist = wishlist;
     }
 
-    public List<FavoriteGame> getFavoriteGames() {
+    public List<FavoriteGameDTO> getFavoriteGames() {
         return favoriteGames;
     }
 
-    public void setFavoriteGames(List<FavoriteGame> favoriteGames) {
+    public void setFavoriteGames(List<FavoriteGameDTO> favoriteGames) {
         this.favoriteGames = favoriteGames;
     }
 }

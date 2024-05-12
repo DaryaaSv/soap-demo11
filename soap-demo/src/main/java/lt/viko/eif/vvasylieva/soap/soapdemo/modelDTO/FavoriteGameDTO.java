@@ -16,19 +16,19 @@ public class FavoriteGameDTO {
     @XmlElement(required = true)
     private int Id;
     @XmlElement(required = true)
-    private Game game;
+    private GameDTO game;
 
     public FavoriteGameDTO() {
     }
 
-    public FavoriteGameDTO(int id, Game game) {
+    public FavoriteGameDTO(int id, GameDTO game) {
         Id = id;
         this.game = game;
     }
 
     public FavoriteGameDTO(FavoriteGame favoriteGame) {
         this.Id = favoriteGame.getId();
-        this.game = favoriteGame.getGame();
+        this.game = new GameDTO(favoriteGame.getGame());
     }
 
     public int getId() {
@@ -39,11 +39,11 @@ public class FavoriteGameDTO {
         Id = id;
     }
 
-    public Game getGame() {
+    public GameDTO getGame() {
         return game;
     }
 
-    public void setGame(Game game) {
+    public void setGame(GameDTO game) {
         this.game = game;
     }
 }

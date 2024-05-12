@@ -66,7 +66,7 @@ public class Review {
 
     public Review(ReviewDTO review) {
         this.Id = review.getId();
-        this.game = review.getGame();
+        this.game = new Game(review.getGame());
         this.reviewText = review.getReviewText();
         this.rating = review.getRating();
     }

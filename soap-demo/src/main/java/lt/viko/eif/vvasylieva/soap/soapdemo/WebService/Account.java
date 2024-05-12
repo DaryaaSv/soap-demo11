@@ -2,8 +2,10 @@ package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
 import jakarta.persistence.*;
 import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.AccountDTO;
+import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.GameDTO;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents an account entity.
@@ -108,10 +110,16 @@ public class Account {
         Id = account.getId();
         this.userName = account.getUserName();
         this.password = account.getPassword();
-        this.games = account.getGames();
-        this.reviews = account.getReviews();
-        this.wishlist = account.getWishlist();
-        this.favoriteGames = account.getFavoriteGames();
+        this.games = account.getGames().stream()
+                .map(Game::new)
+                .collect(Collectors.toList());
+        this.reviews = account.getReviews().stream()
+                .map(Review::new)
+                .collect(Collectors.toList());
+        this.wishlist = new Wishlist(account.getWishlist());
+        this.favoriteGames = account.getFavoriteGames().stream()
+                .map(FavoriteGame::new)
+                .collect(Collectors.toList());
     }
 
     /**

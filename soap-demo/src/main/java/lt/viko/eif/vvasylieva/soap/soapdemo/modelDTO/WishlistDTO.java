@@ -9,6 +9,7 @@ import lt.viko.eif.vvasylieva.soap.soapdemo.WebService.Wishlist;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "wishlist", propOrder = {
@@ -24,12 +25,12 @@ public class WishlistDTO {
     private String wishlistName;
 
     @XmlElement(required = true)
-    private List<Game> games = new ArrayList<>();
+    private List<GameDTO> games = new ArrayList<>();
 
     public WishlistDTO() {
     }
 
-    public WishlistDTO(int id, String wishlistName, List<Game> games) {
+    public WishlistDTO(int id, String wishlistName, List<GameDTO> games) {
         Id = id;
         this.wishlistName = wishlistName;
         this.games = games;
@@ -38,7 +39,9 @@ public class WishlistDTO {
     public WishlistDTO(Wishlist wishlist) {
         this.Id = wishlist.getId();
         this.wishlistName = wishlist.getWishlistName();
-        this.games = wishlist.getGames();
+        this.games = wishlist.getGames().stream()
+                .map(GameDTO::new)
+                .collect(Collectors.toList());
     }
 
     public int getId() {
@@ -57,12 +60,11 @@ public class WishlistDTO {
         this.wishlistName = wishlistName;
     }
 
-    public List<Game> getGames() {
+    public List<GameDTO> getGames() {
         return games;
     }
 
-
-    public void setGames(List<Game> games) {
+    public void setGames(List<GameDTO> games) {
         this.games = games;
     }
 }

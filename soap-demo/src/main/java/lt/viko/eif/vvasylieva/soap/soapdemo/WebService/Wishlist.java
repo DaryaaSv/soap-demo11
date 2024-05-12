@@ -2,10 +2,12 @@ package lt.viko.eif.vvasylieva.soap.soapdemo.WebService;
 
 import jakarta.persistence.*;
 import lt.viko.eif.vvasylieva.soap.soapdemo.WebService.Game;
+import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.GameDTO;
 import lt.viko.eif.vvasylieva.soap.soapdemo.modelDTO.WishlistDTO;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents a wishlist entity.
@@ -63,7 +65,9 @@ public class Wishlist {
     public Wishlist(WishlistDTO wishlist) {
         this.Id = wishlist.getId();
         this.wishlistName = wishlist.getWishlistName();
-        this.games = wishlist.getGames();
+        this.games = wishlist.getGames().stream()
+                .map(Game::new)
+                .collect(Collectors.toList());
     }
 
     /**

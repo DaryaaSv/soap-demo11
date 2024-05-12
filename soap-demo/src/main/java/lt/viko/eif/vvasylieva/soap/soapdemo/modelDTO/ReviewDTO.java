@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 import lt.viko.eif.vvasylieva.soap.soapdemo.WebService.Game;
 import lt.viko.eif.vvasylieva.soap.soapdemo.WebService.Review;
+import org.apache.fop.afp.goca.GraphicsAreaEnd;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "review", propOrder = {
@@ -19,7 +20,7 @@ public class ReviewDTO {
     private int Id;
 
     @XmlElement(required = true)
-    private Game game;
+    private GameDTO game;
 
     @XmlElement(required = true)
     private String reviewText;
@@ -30,13 +31,13 @@ public class ReviewDTO {
     public ReviewDTO() {
     }
 
-    public ReviewDTO(Game game, String reviewText, double rating) {
+    public ReviewDTO(GameDTO game, String reviewText, double rating) {
         this.game = game;
         this.reviewText = reviewText;
         this.rating = rating;
     }
 
-    public ReviewDTO(int id, Game game, String reviewText, double rating) {
+    public ReviewDTO(int id, GameDTO game, String reviewText, double rating) {
         this.Id = id;
         this.game = game;
         this.reviewText = reviewText;
@@ -45,7 +46,7 @@ public class ReviewDTO {
 
     public ReviewDTO(Review review) {
         this.Id = review.getId();
-        this.game = review.getGame();
+        this.game = new GameDTO(review.getGame());
         this.reviewText = review.getReviewText();
         this.rating = review.getRating();
     }
@@ -58,11 +59,11 @@ public class ReviewDTO {
         Id = id;
     }
 
-    public Game getGame() {
+    public GameDTO getGame() {
         return game;
     }
 
-    public void setGame(Game game) {
+    public void setGame(GameDTO game) {
         this.game = game;
     }
 
